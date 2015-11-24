@@ -1,7 +1,6 @@
 D_STUACC.BIN binary
 TT_ITEMS.BIN binary
 ASS_ROOM.BIN binary
-bannerdb.bin binary
 C_ITEMS.BIN binary
 RESDATA_CON.BIN binary
 DB_LEVEL.BIN binary
@@ -15,3 +14,4 @@ D_SHLECT.BIN binary
 D_SHMODS.BIN binary
 D_SHROOM.BIN binary
 RD_TTW.BIN binary
+DATA_CON.BIN binary
