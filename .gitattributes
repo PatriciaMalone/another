@@ -5,8 +5,6 @@ C_ITEMS.BIN binary
 RESDATA_CON.BIN binary
 DB_LEVEL.BIN binary
 DB_TERMS.BIN binary
-/cmis/res/D_CONST.BIN binary
-/ttcore/res/D_CONST.BIN binary
 D_SHCEQ.BIN binary
 D_SHCP.BIN binary
 D_SHCRS.BIN binary
