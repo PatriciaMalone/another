@@ -1,0 +1,1538 @@
+=
+; file must being with = and end with *
+; comments begin with a ;
+;= used to start and end a section
+;first line in section is the mnemonic to be used
+;second line if path to value, each level delimited wiht a tab stop
+;third line is the type
+;  boolean will be a check box
+;  edit will be an edit control
+;     number as a further option indicates a numeric value
+;     timehm indicates time in hour:minute format
+;     timems indicates time is minutes second format
+;  values indicates a list of value (radios or combo)
+;  list indicates an ordered list
+;fourth line is the label for the value
+;
+; values will be followed by a list of value lines
+;  num value \t text
+;
+; a setting's enabled state can be set from another setting's value
+; by including a trailing line with # \t setting \t value
+;
+; a default value can be included by specifying a @ default line at the end
+LDAP_TYPE
+LDAP
+values
+LDAP use
+1	Use LDAP to verify password details for accounts in CMIS
+2	Use LDAP instead of account information in CMIS
+0	Do not use LDAP
+@0
+=
+LDAP_USER_BASE_DN
+LDAP
+edit	string
+Enter the Base DN for the LDAP bind, this will allow CMIS to verify the user details 
+=
+LDAP_SPECIFIC_USER
+LDAP
+edit	string
+Enter the default LDAP user name to check at login (cn=USERNAME)
+=
+LDAP_MACHINE
+LDAP
+edit	string
+Enter the name of the machine containing the account information to access using LDAP
+@
+=
+LDAP_PORT
+LDAP
+edit	string
+Enter the port number to access the machine with account information
+@
+=
+MISC_WEEK_SUBSETS
+Miscellaneous
+edit	string
+User defined week range label ( Name:start wk-finish wk;...etc )
+@
+=
+MISC_STU_MOD_CHECK_INSTANCE
+Miscellaneous
+boolean
+Check for multiple %t004sl[module] assignments with different instances in the Associations window
+@0
+=
+CRSMAN_MAX_TIME_FOR_SUB_GROUP_FIT
+%t005sc[Course] management
+edit	timems
+Maximum time to allow for sub group fitting
+@00:15
+=
+CRSMAN_LIMIT_AVAIL_BY_YEAR
+%t005sc[Course] management
+boolean
+Limit available %t004pl[modules] to %t018sl[year] of %t007sl[student]
+@0
+=
+MISC_BOOKING_CLASH_CHECK_CATERING_LEAD
+Bookings
+boolean
+Clash check catering lead times when events are changed / created
+@0
+=
+MISC_ACAD_TERM_SINGLE
+Miscellaneous	Terminology
+edit	string
+Term for Academic (singular, long)
+@Academic
+=
+MISC_ACAD_TERM_PLURAL
+Miscellaneous	Terminology
+edit	string
+Term for Academic (plural, long)
+@Academics
+=
+MISC_ACAD_TERM_SINGLE_SHORT
+Miscellaneous	Terminology
+edit	string
+Term for Academic (singular, short)
+@Acad
+=
+MISC_ACAD_TERM_PLURAL_SHORT
+Miscellaneous	Terminology
+edit	string
+Term for Academic (plural, short)
+@Acads
+=
+AUTO_BANNER_LOG_FILE
+Miscellaneous	Auto Banner transfer	Log file path
+edit	string
+Log file path
+@ban_log.txt
+=
+AUTO_BANNER_LOG_FILE_LINE_LENGTH
+Miscellaneous	Auto Banner transfer	File line length
+edit	number
+Log file line length
+@120
+=
+CLASH_TRAVEL_DAYS
+Clashing	Travel times
+boolean
+Check travel times across days
+@0
+=
+ADV_ORDER_IGNORE_SUNDAY
+Advanced	Orderings
+boolean
+Ignore Sundays when considering day gaps between orderings
+@0
+=
+ADV_ORDER_IGNORE_SATURDAY
+Advanced	Orderings
+boolean
+Ignore Saturdays when considering day gaps between orderings
+@0
+=
+ADV_ORDER_IGNORE_DAYS_OFF
+Advanced	Orderings
+boolean
+Ignore days off when considering day gaps between orderings
+@0
+=
+DB_UNIQUE_EVENT_IDS_FOR_SETS
+Database
+boolean
+Create event ids which are unique across all data sets
+@0
+=
+DB_DELETE_IDS_FOR_NEW_EVENTS
+Database
+boolean
+Delete entries from tables for new event ids
+@0
+=
+TT_CHECK_BLOCK_ON_EVENT_CHANGE
+Timetabling
+boolean
+Validate block contents when events are changed
+@1
+=
+TT_CHECK_LECT_MODS
+Timetabling
+boolean
+Validate %t000sl[lecturer] / %t004sl[module] associations when events are changed
+@0
+=
+TT_DEF_TO_CREATE_LINK
+Timetabling
+boolean
+By default create links when multiple occurrences created using Groups window
+@0
+=
+TT_LINK_DEF_CODE
+Timetabling	Links
+edit	string	2000
+Expression that will generate default code to use when creating links for event
+@ConCat(Event.Mod.Single.Mod.Code, '/', Event.Class.Single.Class.Code)
+=
+TT_LINK_DEF_NAME
+Timetabling	Links
+edit	string	2000
+Expression that will generate default name to use when creating links for event
+@ConCat(Event.Mod.Single.Mod.Name, ' / ', Event.Class.Single.Class.Code)
+=
+TT_BLOCK_DEF_CODE
+Timetabling	Blocks
+edit	string	2000
+Expression that will generate default code to use when creating blocks for event
+@ConCat(Event.Mod.Single.Mod.Code, '/', Event.Class.Single.Class.Code)
+=
+TT_BLOCK_DEF_NAME
+Timetabling	Blocks
+edit	string	2000
+Expression that will generate default name to use when creating blocks for event
+@ConCat(Event.Mod.Single.Mod.Name, ' / ', Event.Class.Single.Class.Code)
+=
+TT_BLOCK_CREATE
+Timetabling	Blocks
+boolean
+Create blocks without pause (in planning matrices) - if code available
+@1
+=
+TT_BLOCK_SAME_LEN
+Timetabling	Blocks
+boolean
+Ripple changes to event length / periods through to other events in blocks
+@0
+=
+TT_LINK_CREATE
+Timetabling	Links
+boolean
+Create links without pause (in planning matrices) - if code available
+@1
+=
+CLASH_BULK_CHANGE_CREATE_NEW_LINK
+Timetabling	Bulk change and create new
+boolean
+Copy Link Id to new event
+@1
+=
+CLASH_BULK_CHANGE_CREATE_NEW_BLOCK
+Timetabling	Bulk change and create new
+boolean
+Copy Block to new event
+@1
+=
+CLASH_BULK_CHANGE_CREATE_NEW_ORDERING
+Timetabling	Bulk change and create new
+boolean
+Copy Ordering to new event
+@1
+=
+CLASH_BULK_CHANGE_CREATE_NEW_EXCLUSIONS
+Timetabling	Bulk change and create new
+boolean
+Copy Exclusions to new event
+@1
+=
+CLASH_RESTRICTIONS_FREE_AFTERNOON
+Clashing	Timetable	Restrictions
+edit	timehm
+Latest scheduling time allowed for a free afternoon (half day)
+@13:00
+=
+CLASH_RESTRICTIONS_FREE_MORNING
+Clashing	Timetable	Restrictions
+edit	timehm
+Earliest scheduling time allowed for a free morning (half day)
+@13:00
+=
+CLASH_RESTRICTIONS_USE_UNSCHEDULE
+Clashing	Timetable	Restrictions
+boolean
+Use unscheduled events when checking weekly time limits
+@1
+=
+CLASH_RESTRICTIONS_NO_PERIODS_FOR_TIME
+Clashing	Timetable	Restrictions
+boolean
+Do not use unscheduled period events for weekly and total time checking
+@1
+=
+TT_LINK_DEFAULT_DAY_SPREAD
+Timetabling	Links
+values
+Day spread / compress
+0	no setting
+1	Day spread
+2	Day compress
+@1
+=
+TT_LINK_DEFAULT_TIME_SPREAD
+Timetabling	Links
+values
+Time spread / compress
+0	no setting
+1	Time spread
+2	Time compress
+@0
+=
+TT_LINK_DEFAULT_MAX_PER_DAY
+Timetabling	Links
+edit	number
+Maximum number per day
+@1
+=
+TT_DEF_NUM_PERIODS
+Timetabling
+edit	number
+Default number of periods for events with specification with durations
+@1
+=
+TT_DEF_PERIOD_GAP
+Timetabling
+edit	timehm
+Default maximum gap for events with specification with durations
+@
+=
+CONNEC_VALIDATE
+Connection
+boolean
+Validate the database on connection
+@0
+=
+CONNEC_MAX_TABLE_NAME
+Connection
+edit	number
+Max characters in database table name
+@100
+=
+CONNEC_MSG_LEVEL
+Connection
+values
+Messages
+0	show all connection and conformance messages
+2	suppress conformance test results
+9	suppress all connection and conformance messages
+@0
+=
+VAL_LEVEL
+Validation
+values
+Validation level
+1	Verify exitence of tables
+2	Also verify structure of tables
+3	Also verify the integrity of the data in the table
+@3
+=
+VAL_MSG
+Validation
+values
+Messages
+0	show all messages
+1	suppress information messages
+2	suppress messages describing errors
+9	suppress all messages
+@0
+=
+DB_TRACE_LEVEL
+Validation	Trace
+values
+Trace level
+0	No Trace
+1	Summary 
+2	Detailed
+@1
+=
+DB_TRACE_FILE
+Validation	Trace
+edit	string
+Trace file path
+@db_val.txt
+=
+DB_TRACE_FILE_LINE_LENGTH
+Validation	Trace
+edit	number
+Trace file line length
+@120
+=
+CLASH_LECT
+Clashing	Timetable
+boolean
+%t000pc[Lecturers]
+@1
+=
+CLASH_MEQUIP
+Clashing	Timetable
+boolean
+Moving equipment
+@0
+=
+CLASH_ROOM
+Clashing	Timetable
+boolean
+%t002pc[Rooms]
+@1
+=
+CLASH_ROOM_CODE
+Clashing	Timetable
+boolean
+%t002sc[Room] numeric coding check
+@1
+=
+CLASH_CLASS
+Clashing	Timetable
+boolean
+%t003pc[Class groups]
+@1
+=
+CLASH_CLASS_CODE
+Clashing	Timetable
+boolean
+%t003sc[Class group] numeric coding check
+@1
+=
+CLASH_MODULE
+Clashing	Timetable
+boolean
+%t004pc[Modules]
+@1
+=
+CLASH_GROUP
+Clashing	Timetable
+boolean
+%t011pc[Teaching groups]
+@0
+=
+CLASH_MODULE_CODE
+Clashing	Timetable
+boolean
+%t004sc[Module] numeric coding check
+@1
+=
+CLASH_EXCLUSIONS
+Clashing	Timetable
+boolean
+Exclusions
+@1
+=
+CLASH_MODULE_EXCLS
+Clashing	Timetable
+boolean
+%t004sc[Module] exclusions
+@1
+=
+CLASH_CLASS_EXCLS
+Clashing	Timetable
+boolean
+%t003sc[Class group] exclusions
+@1
+=
+CLASH_LECTURER_EXCLS
+Clashing	Timetable
+boolean
+%t000sc[Lecturer] exclusions
+@1
+=
+CLASH_ENFORCE
+Clashing	Options
+boolean
+Enforce clash checking while timetabling
+@0
+=
+CLASH_SHOW_ALL
+Clashing	Options
+boolean
+Show all clashes at the same time
+@1
+=
+CLASH_ORDER
+Clashing	Options
+list
+Order in which clashes are displayed
+0	%t000sc[Lecturer]
+1	%t002sc[Room]
+2	%t004sc[Module]
+3	%t003sc[Class group]
+4	%t007sc[Student]
+5	%t005sc[Course] from %t004sl[module]
+6	%t004pc[Modules] from %t005sl[course]
+7	Equipment
+@0	1	2	3	4	5	6	7
+=
+DB_REFRESH_MAIN
+Database
+boolean
+Full database refresh
+@0
+=
+DB_REFRESH_MAIN_TIME
+Database
+edit	timehm
+Full database refresh interval
+#	DB_REFRESH_MAIN	1
+@1:00
+=
+DB_REFRESH_UPDATE
+Database
+boolean
+Read update changes from database
+@1
+=
+DB_DOUBLE_UP_QUOTES_IN_QUERY_STRINGS
+Database
+boolean
+Double up quotes that are used in query strings e.g. hello'world becomes hello''world
+@1
+=
+DB_REFRESH_UPDATE_TIME
+Database
+edit	timems
+Update interval
+#	DB_REFRESH_UPDATE	1
+@00:10
+=
+HISTORY_RETAIN
+Database	Change history	Timetable
+boolean
+Write record of changes to database for refresh by other users
+@1
+#
+=
+HISTORY_DELETE_OLD
+Database	Change history	Timetable
+boolean
+Delete old change records
+@1
+#
+=
+HISTORY_DELETE_OLD_INTERVAL
+Database	Change history	Timetable
+edit	number
+Number of hours to retain changes
+#	HISTORY_DELETE_OLD	1
+@24
+=
+AUDIT_TRAIL_DELETE_OLD
+Database	Audit trail
+boolean
+Delete old records
+@0
+#
+=
+AUDIT_TRAIL_DELETE_OLD_INTERVAL
+Database	Audit trail
+edit	number
+Number of days to retain changes
+#	AUDIT_TRAIL_DELETE_OLD	1
+@7
+=
+AUDIT_TRAIL_SUB_GROUP_ACTIONS
+Database	Audit trail
+boolean
+Log all sub group actions
+@0
+=
+CLASH_TRAVEL_REQ_ROOMS
+Clashing	Travel times	Options
+boolean
+Use requested %t002pl[rooms] when events do not have %t002pl[rooms]
+@0
+=
+CLASH_TRAVEL_SITES
+Clashing	Travel times	Type
+boolean
+Check travel time between %t001pl[sites]
+@0
+=
+CLASH_TRAVEL_ZONES
+Clashing	Travel times	Type
+boolean
+Check travel time between %l408pl[zones]
+@0
+=
+CLASH_TRAVEL_LECT
+Clashing	Travel times	Resources
+boolean
+Check travel time for %t000pl[lecturers]
+@1
+=
+CLASH_TRAVEL_CLS
+Clashing	Travel times	Resources
+boolean
+Check travel time for %t003pl[class groups]
+@1
+=
+CLASH_TRAVEL_MOD
+Clashing	Travel times	Resources
+boolean
+Check travel time for %t004pl[modules]
+@0
+=
+CLASH_TRAVEL_EQUIP
+Clashing	Travel times	Resources
+boolean
+Check travel time for equipment
+@0
+=
+CLASH_TRAVEL_STU
+Clashing	Travel times	Resources
+boolean
+Check travel time for %t007pl[students]
+@0
+=
+EVENT_SIZE_MODULE
+%t002sc[Room] assignment	Event size
+boolean
+Use %t004sl[module] sizes
+@1
+=
+EVENT_SIZE_CLASS_GROUP
+%t002sc[Room] assignment	Event size
+boolean
+Use %t003sl[class group] sizes
+@1
+=
+EVENT_SIZE_CAP
+%t002sc[Room] assignment	Event size
+boolean
+Use capacity values included in event
+@1
+=
+CLASH_EVENT_SIZE
+Clashing	Timetable
+boolean
+Check event size against %t002sl[room] sizes
+@0
+=
+DB_DATA_REFRESH
+Database	Change history	Data
+boolean
+Retain history of data changes for other users
+@1
+=
+DB_DATA_REFRESH_TIME
+Database	Change history	Data
+edit	timehm
+Refresh interval for checking data changes
+#	DB_DATA_REFRESH	1
+@00:01
+=
+DATA_HISTORY_DELETE_OLD
+Database	Change history	Data
+boolean
+Delete old change records
+@1
+#
+DATA_HISTORY_DELETE_OLD_INTERVAL
+Database	Change history	Data
+edit	number
+Number of hours to retain changes
+#	DATA_HISTORY_DELETE_OLD	1
+@24
+=
+PRINTING_FONTS
+Printing
+values
+Scaling fonts
+0	Vector
+1	Bitmap
+@0
+=
+PRINTING_SPLIT_EVENTS
+Printing
+boolean
+Do not split events across page breaks
+@0
+=
+PRINTING_SPLIT_ITEMS
+Printing
+boolean
+Do not split items (e.g. days / resources) across page breaks
+@0
+=
+CLASH_COMP_MODULES
+Clashing	Timetable
+boolean
+Clash check compulsory %t004pl[modules]
+@1
+=
+CLASH_AVAIL_MODULES
+Clashing	Timetable
+boolean
+Clash check available %t004pl[modules]
+@0
+=
+TT_WARN_CHANGE_BLOCKS
+Timetabling
+boolean
+Show warnings when blocks or links are changed
+@0
+=
+TT_CLEAR_GEN_FIELD_ON_DUP
+Timetabling
+boolean
+Clear general number and string fields on duplicate or place of event
+@1
+=
+TT_RESTRICT_NAV
+Timetabling
+boolean
+Restrict timetable navigation to scheduled resources
+@0
+=
+MISC_HIDE_USER_PASSWORDS
+Miscellaneous
+boolean
+Do not show user passwords
+@0
+=
+MISC_COMBOS_FIRST
+Miscellaneous	Combo boxes
+values
+First item in combo box
+0	code
+1	name
+2	link code
+@0
+=
+MISC_COMBOS_SECOND
+Miscellaneous	Combo boxes
+values
+Second item in combo box
+0	code
+1	name
+2	link code
+3	none
+@1
+=
+MISC_COMBOS_THIRD
+Miscellaneous	Combo boxes
+values
+Third item in combo box
+0	code
+1	name
+2	link code
+3	none
+@3
+=
+MISC_COMBOS_FIRST_LECT
+Miscellaneous	Combo boxes	%t000sc[Lecturer]	Combo boxes
+values
+First item in combo box
+0	code
+1	name
+2	link code
+@0
+=
+MISC_COMBOS_SECOND_LECT
+Miscellaneous	Combo boxes	%t000sc[Lecturer]	Combo boxes
+values
+Second item in combo box
+0	code
+1	name
+2	link code
+3	none
+@1
+=
+MISC_COMBOS_THIRD_LECT
+Miscellaneous	Combo boxes	%t000sc[Lecturer]	Combo boxes
+values
+Third item in combo box
+0	code
+1	name
+2	link code
+3	none
+@3
+=
+MISC_COMBO_DIFF_LECT
+Miscellaneous	Combo boxes	%t000sc[Lecturer]
+boolean
+Different combo box configuration
+@0
+=
+MISC_DEFAULT_SORT
+Miscellaneous
+values
+Default sorting of list views
+1	Sort data after setting default sort criteria
+2	Prompt to sort data after setting default sort criteria
+0	No action after setting default sort criteria
+@1
+=
+MISC_CONFIRM_DELETES
+Miscellaneous
+boolean
+Confirm deletions
+@1
+=
+MISC_CLEAR_AFTER_NEW
+Miscellaneous
+boolean
+Clear data area after New operation
+@1
+=
+MISC_MAX_LIST_COL_WIDTH
+Miscellaneous
+edit	number
+Maximum characters to display in list view columns
+@-1
+=
+MISC_EDIT_EVENT_INTEGER_DATA
+Timetabling	Edit event
+edit	string
+Label for 'integer data' field
+@Integer data
+=
+MISC_EDIT_EVENT_STRING_DATA
+Timetabling	Edit event
+edit	string
+Label for 'string data' field
+@String data
+=
+MISC_EDIT_EVENT_COURSE_MODULES
+Timetabling	Edit event
+boolean
+Restrict %t004pl[modules] for %t005sl[course] if %t005sl[course] filter
+@0
+=
+MISC_EDIT_EVENT_COURSE_MODULES_YEAR
+Timetabling	Edit event
+boolean
+Restrict %t004pl[modules] for %t005sl[course] %t018sl[year] if restricting by %t005sl[course]
+@0
+=
+TT_EVENT_FORCE_OWNER
+Timetabling	Edit event
+boolean
+Force an owner to be specified
+@0
+=
+TT_EVENT_FORCE_SOURCE
+Timetabling	Edit event
+boolean
+Force a source to be specified
+@0
+=
+TT_EVENT_DISP_CLASS_GROUP
+Timetabling	Edit event	Display
+boolean
+%t003pc[Class groups]
+@1
+=
+TT_EVENT_DISP_LECT
+Timetabling	Edit event	Display
+boolean
+%t000pc[Lecturers]
+@1
+=
+TT_EVENT_DISP_MOD
+Timetabling	Edit event	Display
+boolean
+%t004pc[Modules]
+@1
+=
+TT_EVENT_DISP_ROOM
+Timetabling	Edit event	Display
+boolean
+%t002pc[Rooms]
+@1
+=
+TT_EVENT_DISP_ROOM_SPEC
+Timetabling	Edit event	Display
+boolean
+%t002sc[Room] specification
+@1
+=
+TT_EVENT_DISP_ROOM_EQUIP
+Timetabling	Edit event	Display
+boolean
+%t002sc[Room] equipment
+@1
+=
+TT_EVENT_DISP_ROOM_FEAT
+Timetabling	Edit event	Display
+boolean
+%t002sc[Room] features
+@1
+=
+TT_EVENT_DISP_DETS
+Timetabling	Edit event	Display
+boolean
+Event details e.g. booking cost
+@1
+=
+TT_EVENT_DISP_SPEC
+Timetabling	Edit event	Display
+boolean
+Event specification
+@1
+=
+TT_EVENT_DISP_MISC
+Timetabling	Edit event	Display
+boolean
+Miscellaneous
+@1
+=
+TT_STU_MODULES
+%t007sc[Student] timetables
+boolean
+Use %t004pl[modules]
+@1
+=
+TT_STU_GROUPS
+%t007sc[Student] timetables
+boolean
+Use %t011pl[teaching groups]
+@0
+=
+TT_STU_CLASS_GROUPS
+%t007sc[Student] timetables
+boolean
+Use %t003pl[class groups]
+@0
+=
+CLASH_STUDENTS
+Clashing	%t007pc[Students]
+boolean
+Clash check %t007pl[students]
+@1
+=
+CLASH_STUDENTS_WHEN
+Clashing	%t007pc[Students]
+values
+How to perform clash checking
+0	As well as ordinary clash checking for %t004pl[modules] / %t003pl[class groups]
+1	Instead of ordinary clash checking for %t004pl[modules] / %t003pl[class groups]
+@0
+=
+TT_COURSE_IN_EVENT
+%t005pc[Courses]
+boolean
+Use event entry for %t005pl[courses]
+@0
+=
+TT_COURSE_STRUCT_YEAR
+%t005pc[Courses]
+boolean
+Force a %t018sl[year] to be specified when building %t005sl[course] structure
+@0
+=
+TT_COURSE_COMP_MODULE
+%t005pc[Courses]
+boolean
+Use compulsory %t004pl[modules] for %t005pl[courses]
+@1
+=
+TT_COURSE_AVAIL_MODULE
+%t005pc[Courses]
+boolean
+Use available %t004pl[modules] for %t005pl[courses]
+@1
+=
+TT_COURSE_MODULE_IN_CLASHES
+%t005pc[Courses]
+boolean
+Use %t005sl[course] / %t004sl[module] associations for clash checking
+@1
+=
+MISC_CRS_MOD_SUB_GROUPS
+%t005pc[Courses]
+boolean
+Use %t005sl[course] and %t004sl[module] sub group associations
+@0
+=
+CLASH_CONSTRAINTS
+Clashing	Timetable
+boolean
+Constraints
+@1
+=
+CLASH_RESTRICTIONS
+Clashing	Timetable
+boolean
+Check restrictions
+@1
+=
+CLASH_LIMITS
+Clashing	Timetable
+boolean
+%t000sc[Lecturer] / %t004sl[module] / activity limits
+@1
+=
+TT_NEW_EVENT_FILTER
+Timetabling
+boolean
+Create new events using filter details
+@1
+=
+TT_NEW_EVENT_SIZE
+Timetabling
+edit	number
+Default size for new events (in minutes)
+@60
+=
+TT_CLEAR_TIME_UNSCHEDULE
+Timetabling
+boolean
+Clear time when events are unscheduled
+@1
+=
+TT_RIGHT_CLICK
+Timetabling
+boolean
+Right clicking on an event selects it
+@1
+=
+TT_WIN_CELL_RESIZE
+Timetabling	Window
+edit	number
+Cell resizing unit (in minutes)
+@10
+=
+TT_WIN_CELL_DRAG_DROP
+Timetabling	Window
+edit	number
+Grid size (in minutes) for dragging and dropping events
+@10
+=
+TT_WIN_TRACK_MOUSE
+Timetabling	Window
+boolean
+Update timetable clash display to follow mouse position
+@0
+=
+TT_WIN_CLASH_CLICK
+Timetabling	Window
+boolean
+Update timetable clash display on left button clicks
+@1
+=
+TT_NUM_FILTER
+Timetabling
+edit	number
+Maximum number of filter history items for a timetable window
+@15
+=
+LOCKING_TABLE
+Locking
+values
+Table locking when changing timetable events
+0	always lock Timetable table while clash checking
+1	do not lock Timetable table while clash checking
+2	lock Timetable table while booking %t002pl[rooms]
+@0
+=
+LOCKING_RESOURCES
+Locking
+boolean
+Use resource locking while changing timetable events
+@0
+=
+PLAN_SAME_GROUP_SIZE
+Planning
+values
+Groups created automatically
+0	create all with same size
+1	last group should have remainder
+@1
+=
+MISC_HIDE_HIGHER_LEVEL
+Miscellaneous
+boolean
+Do not show multiple higher level items in timetable columns if all same
+@0
+=
+CHANGE_DEFAULT_CONSTRAINTS
+Clashing	Timetable
+boolean
+Allow default constraints to be changed
+@1
+=
+MISC_EXAM_SESSION_QUERY
+Miscellaneous
+edit	string
+Session query for Timetable table
+@Classif = 'CI'
+=
+DB_OPEN_AUDIT_TRAIL
+Database
+boolean
+Show full audit trail when window opened
+@0
+=
+MISC_BOOKING_SHOW_FINISH_TIME
+Bookings
+boolean
+Show finish time in booking window
+@0
+=
+MISC_BOOKING_SKIP_SATURDAY
+Bookings
+boolean
+Skip Saturday when time extends over a day
+@1
+=
+MISC_BOOKING_SKIP_SUNDAY
+Bookings
+boolean
+Skip Sunday when time extends over a day
+@1
+=
+MISC_BOOKING_REPORTS
+Bookings
+boolean
+Use booking reports instead of booking slips
+@1
+=
+MISC_BOOKING_IMM_EMAIL_PROMPT
+Bookings
+boolean
+Prompt for booking slip for immediate e-mail after booking
+@1
+=
+MISC_BOOKING_CHECK_PUB_TIMES
+Bookings
+boolean
+Ensure published times are within event times
+@0
+=
+MISC_USE_HOURS_MINS
+Miscellaneous
+boolean
+Show times as HH:MM in Edit event and Locate resource windows
+@0
+=
+UPDATE_DR_STATUS
+Miscellaneous
+boolean
+Update DRStatus for events when resource codes change
+@1
+=
+MISC_PROMPT_MULT_UPDATES
+Miscellaneous
+values
+Prompt to update other data sets
+0	never display this prompt
+1	display prompt when code changed or code deleted
+2	display prompt for any record change
+@1
+=
+MISC_PROMPT_WEEK_RANGES
+Miscellaneous
+boolean
+Do not automatically create week ranges i.e. prompt the user for details
+@0
+=
+MISC_BOOKING_SHOW_ALL_CONTACTS
+Bookings
+boolean
+Show all contacts when no matching information has been entered
+@1
+=
+MISC_BOOKING_SHOW_ALL_ORGS
+Bookings
+boolean
+Show all organisations when no matching information has been entered
+@1
+=
+MISC_BOOKING_DO_LOOKUP_IN_FILTER
+Bookings
+boolean
+When a combo is opened on the Bookings tab in the Timetable Filter do a partial match
+@0
+=
+MISC_REMEMBER_WEEK_RANGES
+Miscellaneous
+boolean
+Remember the week ranges that are chosen interactively and re-use them
+@1
+=
+CRS_MAN_STUDENT_EXPR_FOR_NO_COMP
+%t005sc[Course] management
+edit	string	2053
+Expression to define %t007pl[students] for whom compulsory %t004pl[modules] should not be enroled automatically
+@
+=
+CRS_MAN_MAX_UNITS_PER_PAPER
+%t005sc[Course] management
+edit	string
+Maximum number of units allowed per paper when checking regulations
+@1.0
+=
+CRS_MAN_MIN_UNITS_PER_PAPER
+%t005sc[Course] management
+edit	string
+Minimum number of units allowed per paper when checking regulations
+@1.0
+=
+CRS_MAN_MAX_YEARLY_UNITS
+%t005sc[Course] management
+edit	string
+Maximum number of units allowed per %t005sl[course] %t018sl[year]
+@4.0
+=
+MISC_CRS_MOD_AVAILABLE_GROUP
+%t005pc[Courses]
+values
+Available groups
+0	clash %t004pl[modules] within each group
+1	clash %t004pl[modules] between groups
+2	no clashing
+@0
+=
+MISC_CRS_MOD_ADV_COMP_COMP_SUB
+%t005pc[Courses]	Advanced
+boolean
+Compulsory [whole] clashes with compulsory sub group
+@1
+=
+MISC_CRS_MOD_ADV_COMP_AVAIL_SUB
+%t005pc[Courses]	Advanced
+boolean
+Compulsory [whole] clashes with available sub group
+@0
+=
+MISC_CRS_MOD_ADV_COMP_SUB_AVAIL
+%t005pc[Courses]	Advanced
+boolean
+Compulsory sub group clashes with available [whole]
+@0
+=
+MISC_CRS_MOD_ADV_COMP_SUB_AVAIL_SUB
+%t005pc[Courses]	Advanced
+boolean
+Compulsory sub group clashes with available sub group
+@0
+=
+MISC_CRS_MOD_ADV_COMP_SUB_COMP_SUB
+%t005pc[Courses]	Advanced
+boolean
+Compulsory sub group clashes with compulsory sub group
+@0
+=
+MISC_CRS_MOD_ADV_AVAIL_SUB_AVAIL_SUB
+%t005pc[Courses]	Advanced
+boolean
+Available sub group clashes with available sub group
+@0
+=
+MISC_CRS_MOD_ADV_AVAIL_AVAIL_SUB
+%t005pc[Courses]	Advanced
+boolean
+Available [whole] clashes with available sub group
+@0
+=
+CONNEC_DISCONNECT
+Connection
+edit	timehm
+Period of inactivity that leads to disconnection
+@0:30
+=
+CONNEC_AUTODISCONNECT
+Connection
+boolean
+Automatically disconnect inactive users
+@0
+=
+MISC_CHECK_CALENDAR
+Miscellaneous
+boolean
+Check calendar for days off when events are changed
+@0
+=
+EXT_TABLE_CHECK_DURATION
+External tables	Write
+boolean
+Check that a duration is included
+@1
+=
+EXT_TABLE_CHECK_DAY
+External tables	Write
+boolean
+Check that a day is included
+@1
+=
+EXT_TABLE_CHECK_WEEKS
+External tables	Write
+boolean
+Check that a week range is included
+@1
+=
+EXT_TABLE_CHECK_START
+External tables	Write
+boolean
+Check that a start time is included
+@1
+=
+EXT_TABLE_CHECK_MULT_ROOMS
+External tables	Write
+boolean
+Check that at most one %t002sl[room] is included
+@1
+=
+EXT_TABLE_CHECK_MULT_LECTS
+External tables	Write
+boolean
+Check that at most one %t000sl[lecturer] is included
+@1
+=
+EXT_TABLE_CHECK_COURSE_MODULE_ASSOC
+External tables	Write
+boolean
+Check that there is an association between a %t004sl[module] and a %t005sl[course] in an event
+@1
+=
+EXT_TABLE_CHECK_MULT_MODULES
+External tables	Write
+boolean
+Check that at most one %t004sl[module] is included
+@1
+=
+EXT_TABLE_CHECK_MULT_CLASS_NO_MODS
+External tables	Write
+boolean
+Check that at most one %t003sl[class group] is included if there are no %t004pl[modules]
+@1
+=
+EXT_TABLE_CHECK_SOME_CLASSES_NO_MODS
+External tables	Write
+boolean
+Check that at least one %t003sl[class group] or one %t004sl[module] is included
+@1
+=
+EXT_TABLE_CHECK_FOR_SHORT_REGISTERS
+External tables	Write
+boolean
+Check for short registers (events with same %t005sl[course] and link code of S)
+@0
+=
+EXT_TABLE_WRITE_DETAILS_TABLES
+External tables	Write
+boolean
+Write to the Events and EventDetails tables (instead of UIOEvents)
+@0
+=
+EXT_TABLE_USE_INSTANCES
+External tables
+boolean
+Use CMIS %t004sl[module] instances
+@0
+=
+MISC_FORM_REPORT_BATCH_SIZE
+Miscellaneous
+edit	number
+Batch size to use when printing or previewing form reports
+@-1
+=
+MISC_DONT_REGISTER_TERMS_FOR_OBJECTS
+Miscellaneous
+boolean
+Do not register terminology strings for objects for parsing
+@0
+=
+EVENT_CONDITION
+Timetabling	Changes
+edit	string	2000
+Expression that must be True before an event can be changed or created
+@
+=
+EVENT_CONDITION_MSG
+Timetabling	Changes
+edit	string
+Message to display if condition evaluates to False.
+@
+=
+EVENT_CONDITION_TYPE
+Timetabling	Changes
+values
+Messages
+0	do not allow the user to continue if the message is displayed
+1	allow the user to continue (message is a warning)
+@0
+=
+REG_PRESERVE_EVENTS
+Registers
+values
+Preserve event details when events change (by creating new events for old data)
+0	do not preserve
+1	preserve when register data exists
+2	always preserve
+@0
+=
+REG_PRESERVE_METHOD
+Registers
+values
+Rule for preserving event changes
+0	identify break-week automatically
+1	identify break-week automatically then prompt user
+@0
+=
+TT_SNAP_TO_EVENT_SPEC
+Timetabling
+boolean
+Snap to event specification times when dragging and dropping to move events
+@1
+=
+CLASH_MULT_AS_EVENT
+Clashing	Timetable
+boolean
+Treat each period in a multiple as an event for constraints and restrictions
+@1
+=
+CRSMAN_ENROLMENT_COMP_YEAR
+%t005sc[Course] management
+values
+What year should compulsories be enrolled from?
+0	current %t018sl[year] only
+1	all %t018pl[years] till now
+@1
+=
+DATA_ACADEMIC_MASTER_MODULE_INSTANCE_SELECTED
+Data	Academic	Master %t004sl[module] list
+boolean
+Link code - Apply changes to selected instance only
+@0
+=
+CRSMAN_ENROLMENT_INSTANTANEOUS_CHECK
+%t005sc[Course] management
+boolean
+Check most recent %t004sl[module] information when updating
+@0
+=
+EMAIL_REPORT_DEFAULT_DIRECTORY
+Email Report
+edit	string
+Default directory
+@
+=
+EMAIL_REPORT_DEFAULT_FILENAME_TEMPLATE
+Email Report
+edit	string
+Default filename template
+@
+=
+EMAIL_REPORT_NOTIFICATION_TEMPLATE
+Email Report
+edit	string
+Default notification template
+@
+=
+EMAIL_REPORT_CUSTOM_FILE_DELIMITER
+Email Report
+edit	string
+File delimiter custom
+@
+=
+EMAIL_REPORT_FILE_DELIMITER
+Email Report
+Values
+File delimiter
+0	tab
+1	space
+2	comma
+3	custom
+@0
+=
+OPTIONS_CHECK_DUP_RES_USERNAMES
+Miscellaneous
+boolean
+Check for duplicate resource usernames
+@1
+=
+VISUAL_CONTROL_DATA
+Visual control path
+boolean
+Display the Data path
+@1
+=
+VISUAL_CONTROL_INTERASCHED
+Visual control path
+boolean
+Display the Interactive scheduling path
+@1
+=
+VISUAL_CONTROL_ROOMBOOK
+Visual control path
+boolean
+Display the %t002sc[room] booking path
+@1
+=
+EP_PWD_CHANGE_AT_FIRST_LOGIN
+EPortal	Security	Resource Passwords
+boolean
+User must change password on first login
+@0	
+=
+EP_PWD_MIN_LEN
+EPortal	Security	Resource Passwords
+edit	number
+Minimum length of password 
+#
+@0
+=
+EP_PWD_MIN_LETTERS
+EPortal	Security	Resource Passwords
+edit	number
+Minimum number of letters in password
+#
+@0
+=
+EP_PWD_MIN_DIGITS
+EPortal	Security	Resource Passwords
+edit	number
+Minimum number of digits in password
+#
+@0
+=
+EP_PWD_DISALLOW_USERID
+EPortal	Security	Resource Passwords
+boolean
+Cannot contain the user's user id.
+@0
+=
+EP_PWD_MAX_CONSEC_CHARS_OF_USERS_NAME
+EPortal	Security	Resource Passwords
+edit	number
+Number of consecutive characters of the users full name that the password cannot exceed
+#
+@0
+=
+EP_PWD_CONTAIN_CHARS_FROM_CATS
+EPortal	Security	Resource Passwords
+boolean
+Password must contain characters from 3 of the following 4 categories : [ A-Z ], [ a-z ], [ 0-9 ], [ Non alphanumeric characters eg. ! & % ]  
+#
+@0
+=
+EP_PWD_UNIQUE_NEW_PWD
+EPortal	Security	Resource Passwords
+edit	number
+Number of unique new passwords that must be issued before an old password can be reused.
+#
+@3
+=
+EP_PWD_LIFETIME_LEN
+EPortal	Security	Resource Passwords	Password expires after
+edit	number
+Intervals
+@0
+=
+EP_PWD_LIFETIME_TYPE
+EPortal	Security	Resource Passwords	Password expires after
+values
+Type of interval
+0	days
+2	weeks
+@0
+=
+TT_UNLOCK_LOCKED_EVENTS_IN_PLANNING_MATRICES
+Timetabling
+boolean
+Unlock events when copying locked events within planning matrices
+@0
+*
+*
