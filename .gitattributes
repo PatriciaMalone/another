@@ -16,3 +16,5 @@ RD_TTW.BIN binary
 DATA_CON.BIN binary
 tt_it_sc.BIN binary
 tt_it_uk.bin binary
+/cmis/res/D_CONST.BIN binary
+/ttcore/res/D_CONST.BIN binary
